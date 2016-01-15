@@ -13,4 +13,4 @@ localhost ansible_connection=local
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
 [hosts]
-grega-m93p.life.atigeo.com
+localhost
