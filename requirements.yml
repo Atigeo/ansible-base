@@ -1,0 +1,14 @@
+# docker role
+- src: https://github.com/Atigeo/ansible-docker.git
+  version: master
+  name: docker
+
+# trust-geotrust role
+- src: https://github.com/Atigeo/ansible-trust-geotrust.git
+  version: master
+  name: trust-geotrust
+
+# java role
+- src: https://github.com/Atigeo/ansible-java.git
+  version: master
+  name: java
