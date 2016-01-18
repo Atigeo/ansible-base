@@ -1,0 +1,11 @@
+---
+- name: Atigeo Base
+  hosts: hosts
+  sudo: True
+  vars:
+
+# Uncomment the rolse you wish to install
+  roles:
+#    - trust-geotrust
+#    - docker
+#    - java
