@@ -4,8 +4,18 @@
   sudo: True
   vars:
 
+
 # Uncomment the rolse you wish to install
+
   roles:
+# Add key chain to system in order for docker to trust our registry.
 #    - trust-geotrust
-#    - docker
-#    - java
+
+# Docker role. user will be added to the docker group.
+#    - { role: docker, user: ubuntu}
+
+# Install java, java_location is location of java install.
+#    - { role: java, java_location: /usr/lib/jvm }
+
+# Pull and start elastic search.
+#    -  elastic-search
