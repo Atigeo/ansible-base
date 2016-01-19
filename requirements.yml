@@ -17,3 +17,8 @@
 - src: https://github.com/Atigeo/ansible-elastic-search.git
   version: master
   name: elastic-search
+
+# Zookeeper role
+- src: https://github.com/Atigeo/ansible-zookeeper.git
+  version: master
+  name: zookeeper
