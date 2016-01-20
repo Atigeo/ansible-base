@@ -5,23 +5,23 @@
   vars:
 
 
-# Uncomment the rolse you wish to install
+## Uncomment the rolse you wish to install
 
   roles:
-# Add key chain to system in order for docker to trust our geotrust keys.
+## Add key chain to system in order for docker to trust our geotrust keys.
 #    - trust-geotrust
 
-# Docker role. user will be added to the docker group.
-# Remove user peram to add no one.
-# #    - { role: docker, user: ubuntu}
+## Docker role. user will be added to the docker group.
+## Remove user peram to add no one.
+#     - { role: docker, user: ubuntu}
 
-# Install java, java_location is location of java install.
+## Install java, java_location is location of java install.
 #    - { role: java, java_location: /usr/lib/jvm }
 
-# Pull and start elastic search.
+## Pull and start elastic search.
 #    -  elastic-search
 
-# Pull and start zookeeper. docker_command options:
-# init - format /var/lib/zookeeper
-# run - use existing data in /var/lib/zookeeper
-#    - { role: zookeeper, docker_command: init }
+## Pull and start zookeeper. docker_command options:
+## init - format /var/lib/zookeeper
+## run - use existing data in /var/lib/zookeeper
+    - { role: zookeeper, docker_command: init }
