@@ -24,4 +24,4 @@
 ## Pull and start zookeeper. docker_command options:
 ## init - format /var/lib/zookeeper
 ## run - use existing data in /var/lib/zookeeper
-    - { role: zookeeper, docker_command: init }
+#    - { role: zookeeper, docker_command: init }
