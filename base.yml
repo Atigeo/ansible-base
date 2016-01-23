@@ -5,23 +5,51 @@
   vars:
 
 
-## Uncomment the rolse you wish to install
-
+##-- Uncomment the rolse you wish to install 
   roles:
-## Add key chain to system in order for docker to trust our geotrust keys.
+
+##-- Add key chain to system in order for docker to trust-## 
+##-- our geotrust keys. ----------------------------------##
 #    - trust-geotrust
 
-## Docker role. user will be added to the docker group.
-## Remove user peram to add no one.
-#     - { role: docker, user: ubuntu}
 
-## Install java, java_location is location of java install.
+##-- Docker role. ----------------------------------------##
+#    - role: docker
+
+##--  user will be added to the docker group.
+#    - { role: docker, user: ubuntu }
+
+
+##-- Install java ----------------------------------------##
+#    - role: java
+
+##-- Set location to install java, default is /usr/lib/jvm.
 #    - { role: java, java_location: /usr/lib/jvm }
 
-## Pull and start elastic search.
-#    -  elastic-search
 
-## Pull and start zookeeper. docker_command options:
-## init - format /var/lib/zookeeper
-## run - use existing data in /var/lib/zookeeper
-#    - { role: zookeeper, docker_command: init }
+##-- Elastic search role ---------------------------------##
+#    - role: elastic-search
+
+##-- Set the data direcotry, default is /data
+#    - { role: elastic-search, data_dir: /data }
+
+
+##-- Zookeeper role --------------------------------------##
+#    - role: zookeeper
+
+##-- Set the data direcotry, default is /data
+#    - { role: zookeeper, data_dir: /data }
+
+##-- Don't preform an init at docker startup
+#    - { role: zookeeper, docker_command: run }
+
+
+##-- Kafka role ------------------------------------------##
+#    - role: kafka
+
+##-- Set the data direcotry, default is /data
+#    - { role: kafka, data_dir: /data }
+
+##-- Don't preform an init at docker startup
+#    - { role: kafka, docker_command: run }
+

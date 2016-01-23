@@ -22,3 +22,8 @@
 - src: https://github.com/Atigeo/ansible-zookeeper.git
   version: master
   name: zookeeper
+
+# Kafka role
+- src: https://github.com/Atigeo/ansible-kafka.git
+  version: master
+  name: kafka
