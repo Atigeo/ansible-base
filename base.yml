@@ -1,55 +1,75 @@
 ---
 - name: Atigeo Base
   hosts: hosts
-  sudo: True
+  become: sudo
   vars:
 
+#  tasks:
+#    - debug: msg="{{ ansible_default_ipv4.address }}"
 
 ##-- Uncomment the rolse you wish to install 
   roles:
 
 ##-- Add key chain to system in order for docker to trust-## 
-##-- our geotrust keys. ----------------------------------##
+## our geotrust keys.					  ##
+##--------------------------------------------------------##
+
 #    - trust-geotrust
 
 
 ##-- Docker role. ----------------------------------------##
-#    - role: docker
+## Variables: 						  ##
+##	user: Adds the user to the docker group.          ##
+##--------------------------------------------------------##
 
-##--  user will be added to the docker group.
-#    - { role: docker, user: ubuntu }
+#    - { role: docker }
 
 
 ##-- Install java ----------------------------------------##
-#    - role: java
+## Variables: 						  ##
+##	java_location: Install directory, default         ##
+## location is /usr/lib/jvm                               ##
+##--------------------------------------------------------##
 
-##-- Set location to install java, default is /usr/lib/jvm.
-#    - { role: java, java_location: /usr/lib/jvm }
+#    - { role: java  }
 
 
 ##-- Elastic search role ---------------------------------##
-#    - role: elastic-search
+## Variables:  						  ##
+##	data_dir: Direcotry for persistent storage.       ##
+##                default direcotry is /data              ##
+##--------------------------------------------------------##
 
-##-- Set the data direcotry, default is /data
-#    - { role: elastic-search, data_dir: /data }
+#    - { role: elastic-search }
 
 
 ##-- Zookeeper role --------------------------------------##
-#    - role: zookeeper
+## Variables:    					  ##
+##	data_dir: Direcotry for persistent storage.       ##
+##                default direcotry is /data              ##
+##--------------------------------------------------------##
 
-##-- Set the data direcotry, default is /data
-#    - { role: zookeeper, data_dir: /data }
-
-##-- Don't preform an init at docker startup
-#    - { role: zookeeper, docker_command: run }
+#    - { role: zookeeper }
 
 
 ##-- Kafka role ------------------------------------------##
-#    - role: kafka
+## Requirements:					  ##
+## 	Zookeeper running somewhere.			  ##
+## Variables:						  ##
+##	data_dir: Direcotry for persistent storage.       ##
+##                default direcotry is /data              ##
+##  	zookeeper_host: default is localhost.             ##
+##--------------------------------------------------------##
 
-##-- Set the data direcotry, default is /data
-#    - { role: kafka, data_dir: /data }
+#    - { role: kafka }
 
-##-- Don't preform an init at docker startup
-#    - { role: kafka, docker_command: run }
 
+##-- Logstash role ---------------------------------------##
+## Requirements:      					  ##
+##	Elastic Search running somewhere.                 ##
+## Variables:						  ##
+##      data_dir: Direcotry for persistent storage.       ##
+##                default direcotry is /data              ##
+##--------------------------------------------------------##
+
+#    - { role: logstash }
