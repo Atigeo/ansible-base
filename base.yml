@@ -1,7 +1,7 @@
 ---
 - name: Atigeo Base
   hosts: hosts
-  become: sudo
+  sudo: True 
   vars:
 
 #  tasks:
