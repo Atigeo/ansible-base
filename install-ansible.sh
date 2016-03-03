@@ -7,7 +7,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 
 # Need to install python dev before anisble.
-sudo apt-get install python2.7-dev
+sudo apt-get install -y python2.7-dev
 
 # Ansible install
 sudo pip install ansible
