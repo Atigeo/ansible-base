@@ -12,5 +12,15 @@ localhost ansible_connection=local
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
-[hosts]
-localhost
+# Spark cluster
+[spark:children]
+spark-master-node
+spark-nodes
+
+[spark-master-node]
+#spark-master ansible_ssh_host=192.168.1.100
+
+[spark-nodes]
+#spark-node-1 ansible_ssh_host=192.168.1.101
+#spark-node-2 ansible_ssh_host=192.168.1.102
+#spark-node-3 ansible_ssh_host=192.168.1.103

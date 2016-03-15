@@ -22,7 +22,7 @@
 ##	user: Adds the user to the docker group.          ##
 ##--------------------------------------------------------##
 
-    - { role: docker }
+#    - { role: docker }
 
 
 ##-- Install java ----------------------------------------##
@@ -73,3 +73,27 @@
 ##--------------------------------------------------------##
 
 #    - { role: logstash }
+
+
+- hosts: spark
+  sudo: True
+  roles: 
+
+##-- Install java ----------------------------------------##
+## Variables:                                             ##
+##      java_location: Install directory, default         ##
+## location is /usr/lib/jvm                               ##
+##--------------------------------------------------------##
+
+    - { role: java  }
+
+
+##-- Spark role ------------------------------------------##
+## Requirments:                                           ##
+##	Spark requires java installed on all hosts.       ##
+## Variables:                                             ##
+##      spark_master: host name of the spark-master-node. ##
+##      spark_user: user name to run spark under.         ##
+##--------------------------------------------------------##
+
+    - { role: spark }

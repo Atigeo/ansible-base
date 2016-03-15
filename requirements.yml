@@ -27,3 +27,8 @@
 - src: https://github.com/Atigeo/ansible-kafka.git
   version: master
   name: kafka
+
+# Spark role
+- src: https://github.com/Atigeo/ansible-spark.git
+  version: master
+  name: spark
