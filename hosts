@@ -18,9 +18,12 @@ spark-master-node
 spark-nodes
 
 [spark-master-node]
-#spark-master ansible_ssh_host=192.168.1.100
+#spark-master-1 ansible_ssh_host=
 
 [spark-nodes]
-#spark-node-1 ansible_ssh_host=192.168.1.101
-#spark-node-2 ansible_ssh_host=192.168.1.102
-#spark-node-3 ansible_ssh_host=192.168.1.103
+#spark-node-1 ansible_ssh_host=
+#spark-node-2 ansible_ssh_host=
+#spark-node-3 ansible_ssh_host=
+
+[nagios]
+#nagios-1 ansible_ssh_host=

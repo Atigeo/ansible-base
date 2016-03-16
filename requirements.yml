@@ -32,3 +32,8 @@
 - src: https://github.com/Atigeo/ansible-spark.git
   version: master
   name: spark
+
+# RedHat EPEL repos
+- src: https://github.com/geerlingguy/ansible-role-repo-epel.git
+  version: master
+  name: EPEL
