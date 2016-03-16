@@ -37,3 +37,8 @@
 - src: https://github.com/geerlingguy/ansible-role-repo-epel.git
   version: master
   name: EPEL
+
+# Nagios role
+- src: https://github.com/Atigeo/ansible-nagios.git
+  version: master
+  name: nagios

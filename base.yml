@@ -7,7 +7,7 @@
 #  tasks:
 #    - debug: msg="{{ ansible_default_ipv4.address }}"
 
-##-- Uncomment the rolse you wish to install 
+##-- Uncomment the rolse you wish to install on the localhost
   roles:
 
 ##-- Add key chain to system in order for docker to trust-## 
@@ -75,6 +75,10 @@
 #    - { role: logstash }
 
 
+
+
+##------------------- Spark setup ------------------------## 
+
 - hosts: spark
   sudo: True
   roles: 
@@ -99,7 +103,11 @@
     - { role: spark }
 
 
-- hosts: nagios
+
+
+##------------------- Nagios Setup -----------------------##
+
+- hosts: nagios-monitor
   sudo: True
   roles:
 
@@ -114,4 +122,48 @@
 ## Variables:                                             ##
 ##--------------------------------------------------------##
 
-    - { role: /home/grega/git/ansible-nagios }
+    - { role: nagios }
+
+
+
+
+##------------------- Ganglia Setup ----------------------##
+
+- hosts: ganglia-monitor
+  sudo: True
+  roles:
+
+##-- Install EPEL repo -----------------------------------##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: EPEL, when: "ansible_os_family == 'RedHat'" }
+
+
+##-- Install ganglia monitor -----------------------------##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: ganglia }
+
+
+
+
+##---------------- Monitored Hosts Setup -----------------##
+
+- hosts: monitored-hosts
+  sudo: True
+  roles:
+
+##-- Install EPEL repo -----------------------------------##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: EPEL, when: "ansible_os_family == 'RedHat'" }
+
+
+##-- Install ganglia monitor -----------------------------##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: ganglia }

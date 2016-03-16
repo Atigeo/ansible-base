@@ -6,11 +6,23 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
-# Ex 1: Ungrouped hosts, specify before any group headers.
-
+[hosts]
 #localhost ansible_connection=local
 
-# Ex 2: A collection of hosts belonging to the 'webservers' group
+#spark-master-1 ansible_ssh_host=
+#spark-node-1 ansible_ssh_host=
+#spark-node-2 ansible_ssh_host=
+#spark-node-3 ansible_ssh_host=
+
+#nagios-1 ansible_ssh_host=
+#ganglia-1 ansible_ssh_host=
+
+
+# All hosts that are to be monitored with
+# Nagios, ganglia and ELK stack.
+[monitored-hosts:children]
+hosts
+
 
 # Spark cluster
 [spark:children]
@@ -18,12 +30,17 @@ spark-master-node
 spark-nodes
 
 [spark-master-node]
-#spark-master-1 ansible_ssh_host=
+#spark-master-1
 
 [spark-nodes]
-#spark-node-1 ansible_ssh_host=
-#spark-node-2 ansible_ssh_host=
-#spark-node-3 ansible_ssh_host=
+#spark-node-1
+#spark-node-2
+#spark-node-3
 
-[nagios]
-#nagios-1 ansible_ssh_host=
+
+[nagios-monitor]
+#nagios-1
+
+
+[ganglia-monitor]
+#ganglia-1
