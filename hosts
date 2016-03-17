@@ -6,25 +6,58 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
+
+##---- Define all hosts here ----------------------------##
 [hosts]
 #localhost ansible_connection=local
 
+# Spark examples
 #spark-master-1 ansible_ssh_host=
 #spark-node-1 ansible_ssh_host=
-#spark-node-2 ansible_ssh_host=
-#spark-node-3 ansible_ssh_host=
 
+# Hadoop examples
+#hadoop-namenode-1 ansible_ssh_host=
+#hadoop-node-1 ansible_ssh_host=
+
+# Monitoring examples
 #nagios-1 ansible_ssh_host=
 #ganglia-1 ansible_ssh_host=
 
 
-# All hosts that are to be monitored with
-# Nagios, ganglia and ELK stack.
+##---- Monitor HTTP servers here ------------------------##
+[web-servers]
+
+
+[web-servers:vars]
+monitor_http=true
+
+
+##---- Monitor SSH servers here -------------------------##
+[ssh-servers]
+
+
+[ssh-servers:vars]
+monitor_ssh=true
+
+
+##---- All groups being monitored go here ---------------##
 [monitored-hosts:children]
-hosts
+web-servers
+ssh-servers
+
+##---- List all hadoop masters and nodes here -----------##
+[hadoop:children]
+hadoop-namenodes
+hadoop-nodes
+
+[hadoop-namenodes]
+#hadoop-namenode-1
+
+[hadoop-nodes]
+#hadoop-node-[1:100]
 
 
-# Spark cluster
+##---- List all spark masters and nodes here ------------##
 [spark:children]
 spark-master-node
 spark-nodes
@@ -33,14 +66,13 @@ spark-nodes
 #spark-master-1
 
 [spark-nodes]
-#spark-node-1
-#spark-node-2
-#spark-node-3
+#spark-node-[1:100]
 
 
+##---- Nagios monitoring host ---------------------------##
 [nagios-monitor]
 #nagios-1
 
-
+##---- Ganglia monitoring host --------------------------##
 [ganglia-monitor]
 #ganglia-1
