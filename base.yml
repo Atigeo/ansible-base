@@ -94,13 +94,38 @@
 
 ##-- Spark role ------------------------------------------##
 ## Requirments:                                           ##
-##	Spark requires java installed on all hosts.       ##
+##	Spark requires java installed on all hosts.           ##
 ## Variables:                                             ##
-##      spark_master: host name of the spark-master-node. ##
 ##      spark_user: user name to run spark under.         ##
 ##--------------------------------------------------------##
 
     - { role: spark }
+
+
+
+
+##------------------- Hadoop setup -----------------------## 
+
+- hosts: hadoop
+  sudo: True
+  roles: 
+
+##-- Install java ----------------------------------------##
+## Variables:                                             ##
+##      java_location: Install directory, default         ##
+## location is /usr/lib/jvm                               ##
+##--------------------------------------------------------##
+
+    - { role: java  }
+
+
+##-- Hadoop role -----------------------------------------##
+## Requirments:                                           ##
+##  Hadoop requires java installed on all hosts.          ##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: hadoop }
 
 
 

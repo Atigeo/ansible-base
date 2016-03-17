@@ -47,3 +47,8 @@
 - src: https://github.com/Atigeo/atigeo-ganglia.git
   version: master
   name: ganglia
+
+# Hadoop role
+- src: https://github.com/Atigeo/ansible-hadoop.git
+  version: master
+  name: hadoop
