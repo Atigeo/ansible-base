@@ -77,6 +77,32 @@
 
 
 
+##------------------- Hadoop setup -----------------------## 
+
+- hosts: hadoop
+  sudo: True
+  roles: 
+
+##-- Install java ----------------------------------------##
+## Variables:                                             ##
+##      java_location: Install directory, default         ##
+## location is /usr/lib/jvm                               ##
+##--------------------------------------------------------##
+
+    - { role: java  }
+
+
+##-- Hadoop role -----------------------------------------##
+## Requirments:                                           ##
+##  Hadoop requires java installed on all hosts.          ##
+## Variables:                                             ##
+##--------------------------------------------------------##
+
+    - { role: hadoop }
+
+
+
+
 ##------------------- Spark setup ------------------------## 
 
 - hosts: spark
@@ -100,32 +126,6 @@
 ##--------------------------------------------------------##
 
     - { role: spark }
-
-
-
-
-##------------------- Hadoop setup -----------------------## 
-
-- hosts: hadoop
-  sudo: True
-  roles: 
-
-##-- Install java ----------------------------------------##
-## Variables:                                             ##
-##      java_location: Install directory, default         ##
-## location is /usr/lib/jvm                               ##
-##--------------------------------------------------------##
-
-    - { role: java  }
-
-
-##-- Hadoop role -----------------------------------------##
-## Requirments:                                           ##
-##  Hadoop requires java installed on all hosts.          ##
-## Variables:                                             ##
-##--------------------------------------------------------##
-
-    - { role: hadoop }
 
 
 

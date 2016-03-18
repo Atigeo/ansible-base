@@ -44,7 +44,7 @@
   name: nagios
 
 # Ganglia role
-- src: https://github.com/Atigeo/atigeo-ganglia.git
+- src: https://github.com/Atigeo/ansible-ganglia.git
   version: master
   name: ganglia
 
